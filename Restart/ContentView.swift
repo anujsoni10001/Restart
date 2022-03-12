@@ -8,10 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
+    
+    @AppStorage("onboarding") var isOnboardingView = true
+    
+var body: some View {
+    
+    ZStack {
+        
+        if isOnboardingView{
+            OnboardingView()
+        }else{
+            HomeView()
+        }
+
     }
+}
 }
 
 struct ContentView_Previews: PreviewProvider {
